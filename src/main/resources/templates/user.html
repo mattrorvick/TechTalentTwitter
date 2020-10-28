@@ -20,7 +20,17 @@
 
         
 
-        
+        <form th:action="@{/follow/} + ${user.username}" th:if="${!followingStatus && !isSelfPage}" method="post">
+
+            <button style="float:right" type="Submit" class="btn btn-md btn-success">Follow</button>
+
+        </form>
+
+        <form th:action="@{/unfollow/} + ${user.username}" th:if="${followingStatus && !isSelfPage}" method="post">
+            
+            <button style="float:right" type="Submit" class="btn btn-md btn-primary unfollow_btn">Following</button>
+
+        </form>
 
 
         <div th:if="${not #lists.isEmpty(tweetList)}">
