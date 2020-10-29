@@ -18,20 +18,6 @@
 
         <h5>Joined <span th:text="${#dates.format(user.createdAt, 'MMMM dd, yyyy')}"></span></h5>
 
-        
-
-        <form th:action="@{/follow/} + ${user.username}" th:if="${!followingStatus && !isSelfPage}" method="post">
-
-            <button style="float:right" type="Submit" class="btn btn-md btn-success">Follow</button>
-
-        </form>
-
-        <form th:action="@{/unfollow/} + ${user.username}" th:if="${followingStatus && !isSelfPage}" method="post">
-            
-            <button style="float:right" type="Submit" class="btn btn-md btn-primary unfollow_btn">Following</button>
-
-        </form>
-
 
         <div th:if="${not #lists.isEmpty(tweetList)}">
             <h3>Tweets</h3>
@@ -46,6 +32,18 @@
         <div class="list-group" th:each="tweet:${tweetList}">
 
             <div class="list-group-item list-group-item-action">
+                
+                <form th:action="@{/follow/} + ${user.username}" th:if="${!followingStatus && !isSelfPage}" method="post">
+
+                    <button style="float:right" type="Submit" class="btn btn-md btn-success">Follow</button>
+        
+                </form>
+        
+                <form th:action="@{/unfollow/} + ${user.username}" th:if="${followingStatus && !isSelfPage}" method="post">
+                    
+                    <button style="float:right" type="Submit" class="btn btn-md btn-primary unfollow_btn">Following</button>
+        
+                </form>
 
                 <div class="d-flex w-100 justify-content-between">
 
