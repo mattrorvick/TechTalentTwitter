@@ -11,12 +11,13 @@
         <div th:replace="fragments/navbar"></div>
 
         <h2>Profile for 
-            <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span> - <span style = "color: #00aced;">@</span>
-            <span th:text="${user.username}"></span>
+            <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span> - <span style = "color: #00aced;">@</span><span th:text="${user.username}"></span>
         
         </h2>
 
         <h5>Joined <span th:text="${#dates.format(user.createdAt, 'MMMM dd, yyyy')}"></span></h5>
+        
+       
 
 
         <div th:if="${not #lists.isEmpty(tweetList)}">
@@ -47,7 +48,7 @@
 
                 <div class="d-flex w-100 justify-content-between">
 
-                    <h5>@<span th:text="${tweet.user.username}"></span> <span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></h5>
+                    <h5>@<span th:text="${tweet.user.username}"></span> <small style="color:black;" th:text="${tweet.date}"></small></h5>
 
                 </div>
 
