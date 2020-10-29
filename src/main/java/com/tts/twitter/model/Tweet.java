@@ -55,7 +55,7 @@ public class Tweet {
             Date createdAt) {
         this.id = id;
         this.user = user;
-        this.tags = tags;
+        // this.tags = tags;
         this.message = message;
         this.createdAt = createdAt;
     }
