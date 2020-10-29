@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
 <head>
     <title>Twitter feed</title>
     <div th:replace="fragments/styling  :: headStyles"></div>
 </head>
+
 <body>
-    
+
     <div class="container">
         <div th:replace="fragments/navbar"></div>
         <h2>Tweets</h2>
-        
+
         <div class="list-group" th:each="tweet:${tweetList}">
 
             <div class="list-group-item list-group-item-action">
+                
 
-                    <a href="#"><h5>@<span th:text="${tweet.user.username}"></span></a>
-                    <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small>
+                <a href="#">
+                    <h5>@<span th:text="${tweet.user.username}"></span>
+                </a>
+                <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small>
                     </h5>
         
                     <p th:utext="${tweet.message}"></p>
