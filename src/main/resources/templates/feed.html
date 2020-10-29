@@ -14,7 +14,7 @@
 
             <div class="list-group-item list-group-item-action">
 
-                    <h5>@<span th:text="${tweet.user.username}"></span>
+                    <a href="#"><h5>@<span th:text="${tweet.user.username}"></span></a>
                     <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small>
                     </h5>
         
